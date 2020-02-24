@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h2>test</h2>
+<script>
+
+    // 소수를 판별해보자.
+    
+    var number = prompt("소수 판별한 수를 입력하시오");
+    var n_number = Number(number);
+    var n = 2;
+    var count = 0;
+
+    while ( n < n_number ) {   // 자기 자신을 제외한 작은 정수로 나누는. 1부터 나눌 필요는 없음. 모두 나눠지기에. 2부터 n_number-1 수까지 나눠보면 된다.
+         
+       if ( (n_number % n === 0)) {
+           count = count + 1;
+       }
+      
+       else {
+       }
+       console.log("n= " + n + ", count= " + count); 
+       n++;
+       
+    
+      }
+    
+
+    if ( count >= 1 ) {
+       document.write("입력한 수는 소수가 아닙니다.");
+        
+      }
+    else if (n_number === 1) {
+       document.write("입력한 수는 소수가 아닙니다.");
+
+    }
+    else {
+        document.write("입력한 수는 소수 입니다.");
+
+    }
+
+
+</script>
+</body>
