@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>test</h2>
+<script>
+     
+     var foo = function() {
+        for (var i = 0; i < 10; i++) {
+         for (var j = 0; j < 10; j++) {
+            console.log (i, j);
+            if ( i === 5 && j === 3) {
+                return;              // break 는 for loop 1개만 나오지만 return 은 함수 전체를 나옴. 그러기에 함수 활용이 유용함.
+            }
+
+         }
+       }
+     }
+     
+    foo();
+     
+
+
+</script>
+</body>
