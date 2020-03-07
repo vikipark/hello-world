@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>연습문제3</h2>
+<p id="result"></p>
+
+<script>   
+// 1 - 10000 사이의 소수를 화면에 출력하는 프로그램을 작성해 봅시다.
+// HTML + JS로 작성할 것
+// 객체와 메소드를 사용해 볼 것
+// 최대한 예쁘게 만들어 볼 것
+
+numbers = {};
+numbers.all = [];   // empty
+numbers.prime = [];  // empty
+
+// all 배열 속성에 max_num 까지 숫자를 입력
+numbers.addAllNumber = function(max_num){
+    for (i = 2 ; i <= max_num ; i++) {
+         this.all.push(i);    // this (number 객체) 의 속성 all (배열) 에  2 부터 max_num 까지 입력하는 루프. index 0 / 값 2, all 은 비어있는 배열이니깐.
+                             // push(?) -> ? 값을 배열에 추가.
+    };
+
+};
+
+// 매개변수(number)를 입력하면 소수를 판단 (true 면 소수,  false 면 소수가 아님.)
+numbers.isPrime = function(number){   
+     for (var i = 2; i < number; i++) {
+         if (number % i == 0) {
+             return false;   // return ; 바로 함수에서 나옴.
+         };
+
+     };
+    return true;   // true -> 소수
+
+};
+
+// all 배열 속성의 수를 호출해서 isPrime 함수로 소수 판단 (true, false) 해서 소수면 prime 배열에 입력. 매개변수 의미 없지. 그냥 무조건 all 배열 모든 수를 판단해서 prime 배열에 넣는거니.
+numbers.judgePrimes = function() {
+    for (var i = 0; i < this.all.length; i++) {    // all 배열이 index 0 ~ 98까지 값은 2 ~ 100, 그러므로 for 문은 index 0부터 반복이므로 0~98까지만 반복. length 는 마지막 index 보다 항상 1 크니깐.
+            if (this.isPrime(this.all[i])) {    // 예를 들어  max_num = 100 이면 all 배열 index 0~98 값 2~100 값을 isPrime 함수 한단 후 prime 배열에 입력
+            this.prime.push(this.all[i]);  // 소수면 prime 배열에 추가한다.
+        };
+    };
+
+};
+
+numbers.getAllPrimeNumbers = function() {
+     var ret = "전체 소수의 갯수는 " + this.prime.length + " 입니다.<br>";
+
+     for (var i=0; i < this.prime.length; i++) {
+         ret += (i+1) + "번째 소수는 " + this.prime[i] + " 입니다.<br>";
+
+     }
+
+    return ret;
+};
+
+numbers.addAllNumber(10000);
+numbers.judgePrimes();
+document.getElementById("result").innerHTML = numbers.getAllPrimeNumbers();  // "result" id element contents 에 'ret' 문자열 변수 입력
+
+</script>
+</body>
