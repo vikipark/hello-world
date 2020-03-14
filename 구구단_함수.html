@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2>구구단 함수 활용</h2>
+   <p> 야호</p>
+
+
+   <script>
+   var result2 = [1];
+   // 단수를 입력하면 계산 값을 배열에 저장해주는 함수
+   function calculate(dansoo) {
+     var result = []; // array
+     for ( var i = 0; i < 9; i++ ) {
+       result[i] = dansoo * (i+1);
+     };
+     return result;  // array 반환
+
+   };
+   
+   // 단수, 결과 값이 저장된 배열을 매개변수로 화면에 print 해주는 함수.
+   function print(n, resultarr) {
+       document.write("<h2>" + n + "단</h2>");
+       for ( var i = 0; i < resultarr.length; i++) {
+           document.write(n + " X " + (i+1) + " = " + resultarr[i] + "<br>");
+
+    };  
+   };
+   
+   // 2단에서 9단까지 실행하게 하는..
+   function main() {
+        for ( var n = 2; n <= 9; n++) { 
+            print(n, calculate(n));
+    };    
+   };
+   
+   // 2단에서 9단까지 구구단 계산 함수 실행.
+   main();
+
+
+   </script>
+    
+</body>
+</html>

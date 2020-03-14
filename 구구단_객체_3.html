@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2>구구단 함수 + 객체</h2>
+   <p> 야호</p>
+
+
+   <script>
+    
+    gugudan = {};
+    gugudan.result = [];   // result 배열을 객체내 생성하고 결과값을 저장.
+    gugudan.dansoo = 0;
+
+
+    gugudan.calculate = function (n) {
+      this.dansoo = n;
+      for ( var i = 0; i < 9; i++ ) {
+         this.result[i] = n * (i + 1);
+      };
+    };
+
+    gugudan.print = function () {
+      document.write("<h2>" + this.dansoo + "단</h2>");
+      for ( var i = 0; i < this.result.length; i++ ){
+      document.write(this.dansoo + " X " + (i+1) + " = " + this.result[i] + "<br>");
+      };
+    };
+
+    gugudan.main = function () {
+       for ( var n = 2; n <= 9; n++ ) {
+        this.calculate(n);
+        this.print();
+      };
+    };
+
+    gugudan.main();
+
+
+
+
+   </script>
+    
+</body>
+</html>
