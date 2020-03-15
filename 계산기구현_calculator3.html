@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기</h1>
+    <div>
+      첫번째 수: <input type='text' id='n1'><br>
+      두번째 수: <input type='text' id='n2'><br>
+      사칙연산 기호 : <input type='text' id='symbol'><br>
+      <button onclick="calc()">실행</button>
+    </div><br>
+
+
+    <div id='output'></div>
+
+    <script>
+      
+      function calc() {
+      var str1 = document.getElementById('n1').value;
+      var str2 = document.getElementById('n2').value;
+      var str3 = document.getElementById('symbol').value;
+      var n1 = Number(str1);
+      var n2 = Number(str2);
+      var result = "";
+
+      if (str3 === "+"){
+        result = n1 + " + " + n2 + " = " + (n1+n2) + "<br>";
+      }
+      else if (str3 === "-"){
+        result = n1 + " - " + n2 + " = " + (n1-n2) + "<br>";
+      }
+      else if (str3 === "*"){
+        result = n1 + " * " + n2 + " = " + (n1*n2) + "<br>";
+      }
+      else if (str3 === "/"){
+        result = n1 + " / " + n2 + " = " + (n1/n2) + "<br>";
+      }
+      else {
+        document.getElementById('output').innerHTML = "사칙 연산 기호를 입력해주세요.";
+      }
+      document.getElementById('output').innerHTML = result;
+
+      };
+
+
+
+
+
+    </script>
+
+
+    </body>
+    </html>
