@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기</h1>
+
+    <div>
+      첫번째 수: <input type="text" id="n1"><br>
+      두번째 수: <input type="text" id="n2"><br>
+      <button onclick="calc()">실행</button>
+    </div><br>
+
+    <div id='prompt'></div><br>
+    <div id="output"></div>
+
+    <script>
+      function calc() {
+        var str1 = document.getElementById('n1').value;
+        var str2 = document.getElementById('n2').value;
+        var n1 = Number(str1);
+        var n2 = Number(str2);
+        
+        var output = document.getElementById('output');        
+        
+        var str = "사칙연산! <br>";
+        str += "더하기 : " + (n1 + n2) + "<br>"
+        str += "빼기 : " + (n1 - n2) + "<br>"
+        str += "곱하기 : " + (n1 * n2) + "<br>"
+        str += "나누기 : " + (n1 / n2) + "<br>"
+          
+        output.innerHTML = str;
+
+      };
+
+      function main() {
+        var str1 = prompt("num1");
+        var str2 = prompt("num2");
+        num1 = Number(str1);
+        num2 = Number(str2);
+
+        console.log (num1+num2);
+        console.log (num1-num2);
+        console.log (num1*num2);
+        console.log (num1/num2);
+       
+        var str = "사칙연산! <br>";
+        str += "더하기 : " + (num1 + num2) + "<br>"
+        str += "빼기 : " + (num1 - num2) + "<br>"
+        str += "곱하기 : " + (num1 * num2) + "<br>"
+        str += "나누기 : " + (num1 / num2) + "<br>"
+
+        document.getElementById("prompt").innerHTML = str;
+
+      };
+      main();
+
+
+
+    </script>
+
+
+
+
+
+
+    
+</body>
+</html>
