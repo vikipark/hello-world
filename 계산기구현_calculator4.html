@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기</h1>
+
+    <div id='output'></div>
+
+    <script>
+      
+    function calc2() {
+         
+        var result2 = Number(prompt("첫번째 수를 입력하세요."));
+        var n2 = 2;
+        var op = "";
+        var n = 0;
+
+    
+        while (true) {
+          
+          var op = prompt("연산자를 입력");
+
+          if (op === "q") {
+              break;
+          }
+
+          var n = Number(prompt(n2 + "번째 수를 입력하세요."));   
+
+          if (op === "+"){
+              result2 += n;
+          } 
+          else if(op === "-"){
+              result2 -= n;
+          } 
+          else if(op === "*"){
+              result2 *= result2 * n;
+          } 
+          else if(op === "/"){
+              result2 /= result2 / n;
+          } 
+          else {
+              alert("정확히 입력")
+          }
+           
+           n2++;
+
+        };
+       
+        document.getElementById('output').innerHTML = "결과값 : " + result2;
+
+      };
+
+      calc2();
+
+
+    </script>
+
+
+    </body>
+    </html>

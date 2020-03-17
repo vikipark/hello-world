@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기_기능별 함수 + 객체 활용</h1>
+
+    <div id='output'></div>
+
+    <script>
+
+      var cal = {};   
+     
+      cal.getFirstValue = function () {
+        cal.result = Number(prompt("첫번째 수(First)를 입력하세요.")); // cal.result 없으니 동적으로 추가 및 첫번째 수 지정
+        console.log("첫번째 수 : " + cal.result);
+      };
+
+      cal.getSecondValue = function () {
+        var sv = Number(prompt("다음 수(Next)를 입력하세요.")); 
+          return sv;
+      };
+
+      cal.getOperator = function () {
+        var op = prompt("연산자(Operator)를 입력 하세요.");
+          return op;
+
+      };
+
+      cal.calculate = function () {
+
+        while (true) {
+          var op = cal.getOperator();     
+
+          if (op === "q") {
+              break;
+          };
+          var sv = cal.getSecondValue();
+
+          if (op === "+"){
+              cal.result += sv;
+          } 
+          else if(op === "-"){
+              cal.result -= sv;
+          } 
+          else if(op === "*"){
+              cal.result *= sv;
+          } 
+          else if(op === "/"){
+              cal.result /= sv;
+          } 
+          else {
+              alert("연산자를 정확히 입력하세요!!!");
+          }     
+          
+          console.log("op : " + op + ", 다음 수 : " + sv);
+          console.log(cal.result);
+          
+        }
+     };
+
+      cal.print = function () {
+        document.getElementById('output').innerHTML = "최종 계산값 : " + cal.result; 
+   
+      };
+
+      cal.main = function () {
+         this.getFirstValue();
+         this.calculate();
+         this.print();
+
+      };
+
+      cal.main();
+
+
+      
+    
+    </script>
+
+
+    </body>
+    </html>
