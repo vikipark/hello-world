@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기_기능별 함수</h1>
+
+
+    <div>
+      <input type="text" id="input"><br>
+      <button onclick = "calc()">확인</button>
+    </div><br>
+
+    <div id='output'></div>
+
+
+
+
+
+
+    <script>
+            
+    // input 객체
+    var input = {};
+    
+    // 입력한 문자열을 스페이스 바를 간격으로 나누어 배열 list 에 저장.
+    input.init = function () {
+       var str = document.getElementById('input').value;
+       this.list = str.split(" ");
+
+    };
+
+
+     // 배열 list ; 0 숫자 -> 1 연산자 -> 2 숫자 -> 3 연산자 -> 4 숫자  ...
+    
+    
+    input.getValue = function () {
+        var first = Number(this.list.shift());
+        return first;
+    };
+   
+
+
+    input.getOperator = function () {        
+         var op = this.list.shift();
+
+          while(true){
+            if ( op === "+" || op === "-" || op ==="*" || op === "/" || op === "q") {
+              break;
+             }
+            else {
+               alert("올바른 연산자를 입력해주세요");
+              }
+          }
+          return op;
+      };
+    
+
+    
+    // calculator 객체 
+    var calculator = {}; 
+    calculator.calculate = function (result, op, next) {        
+
+          if (op === "+"){
+              result += next;
+          } 
+          else if(op === "-"){
+              result -= next;
+          } 
+          else if(op === "*"){
+              result *= next;
+          } 
+          else if(op === "/"){
+              result /= next;
+          } 
+          else {
+              alert("연산자를 정확히 입력하세요.");
+          }      
+          return result;
+        };
+    
+    // output 객체
+    var output = {};
+    output.print = function (result) {
+        document.getElementById('output').innerHTML = "최종 결과값 : " + result; 
+    };
+
+
+     function calc() {
+
+        input.init();
+      
+        var result = input.getValue();       
+        while (!input.list.length == 0) {
+          var op = input.getOperator();
+          var next = input.getValue();
+          var result = calculator.calculate(result, op, next); 
+        }  
+        output.print(result);
+    }
+    
+    calc();
+
+    </script>
+
+
+
+
+</body>
+</html>

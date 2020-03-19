@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기_기능별 함수</h1>
+
+    <div id='output'></div>
+
+    <script>
+      
+      function getFirstValue() {
+          var first = Number(prompt("첫번째 수를 입력하세요."));
+          return first;
+      }
+
+      function getSecondValue() {
+          var second = Number(prompt("다음 수를 입력하세요.")); 
+          return second;
+      }
+
+       // function getOperator() {
+          // var op = prompt("Operator 를 입력하세요.");
+          // return op;
+      // }
+
+
+
+    // 애초에 연산자 함수 호출해서 main 함수에서 반복할거면, 연산자 함수 자체에 연산자 제대로 입력할때까지 반복하는 루프를 구성한거네. 훨 낫네 이게..
+      function getOperator() {
+          while(true){
+             var op = prompt("연산자를 입력하세요.");
+             if ( op === "+" || op === "-" || op ==="*" || op === "/" || op === "q") {
+              break;
+             }
+             else {
+               alert("올바른 연산자를 입력해주세요");
+              }
+          }
+          return op;
+      }
+
+
+      function calculate(result, op, next) {        
+
+          if (op === "+"){
+              result += next;
+          } 
+          else if(op === "-"){
+              result -= next;
+          } 
+          else if(op === "*"){
+              result *= next;
+          } 
+          else if(op === "/"){
+              result /= next;
+          } 
+          else {
+              alert("연산자를 정확히 입력하세요.");
+          }      
+      
+          return result;
+        }
+        
+      function print(result) {
+        document.getElementById('output').innerHTML = "최종 결과값 : " + result; 
+      }
+
+      function main() {
+        
+        var result = getFirstValue();
+         
+        while (true) {
+          var op = getOperator();
+          if (op === "q") {
+              break;
+          }
+          var next = getSecondValue();
+          var result = calculate(result, op, next); 
+        }
+        print(result);
+      }
+
+    main();
+
+
+
+    </script>
+
+
+    </body>
+    </html>

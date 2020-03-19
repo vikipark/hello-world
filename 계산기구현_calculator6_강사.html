@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기_기능별 함수</h1>
+
+    <div id='output'></div>
+
+    <script>
+      
+    // input 객체
+    var input = {};
+
+    input.getFirstValue = function () {
+          var first = Number(prompt("첫번째 수를 입력하세요."));
+          return first;
+      };
+
+    input.getSecondValue = function () {
+          var second = Number(prompt("다음 수를 입력하세요.")); 
+          return second;
+      };
+   
+    input.getOperator = function () {
+          while(true){
+             var op = prompt("연산자를 입력하세요.");
+             if ( op === "+" || op === "-" || op ==="*" || op === "/" || op === "q") {
+              break;
+             }
+             else {
+               alert("올바른 연산자를 입력해주세요");
+              }
+          }
+          return op;
+      };
+    
+    // calculator 객체 
+    var calculator = {};
+     
+    calculator.calculate = function (result, op, next) {        
+
+          if (op === "+"){
+              result += next;
+          } 
+          else if(op === "-"){
+              result -= next;
+          } 
+          else if(op === "*"){
+              result *= next;
+          } 
+          else if(op === "/"){
+              result /= next;
+          } 
+          else {
+              alert("연산자를 정확히 입력하세요.");
+          }      
+          return result;
+        };
+    
+    // output 객체
+    var output = {};
+    output.print = function (result) {
+        document.getElementById('output').innerHTML = "최종 결과값 : " + result; 
+    };
+
+
+    function main() {  
+        var result = input.getFirstValue();       
+        while (true) {
+          var op = input.getOperator();
+          if (op === "q") {
+              break;
+          }
+          var next = input.getSecondValue();
+          var result = calculator.calculate(result, op, next); 
+        }
+        output.print(result);
+      }
+
+    main();
+
+
+    </script>
+
+
+    </body>
+    </html>
